@@ -1,2 +1,2 @@
-# dajgno-admin-model
-django admin model tools
+# dajgno-model
+django  model tools
