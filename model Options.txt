@@ -1,0 +1,14 @@
+class Meta:
+	verbose_name 		= 'what you wanna display in admin panel'
+	verbose_name_plural 	= ' the plural noun of the model name'
+	ordering 			= ['id','point']
+	get_latest_by 		= ['field1','field2']
+	abstract			=True
+	default_manager_name	='objects'
+	get_absolute_url(self).
+	creating custom methods in models.
+	using '@property' decorator we can use our custom model methods without '()'
+	
+	
+		
+	

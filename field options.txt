@@ -1,0 +1,15 @@
+*show something else instead of field name in admin panel form:
+verbose_name
+-- we can use > x = models.CharField(verbose_name = "x")
+=======================================================================
+* show a help text below the text box in forms :
+help_text
+-- > x = models.CharField(help_text = "x...")
+=======================================================================
+* choose a field as a index in db :
+db_index
+-- x = models.CharField(db_index = True)
+=======================================================================
+* create a field named X but show Y in database column :
+db_column
+-- x = models.CharField(db_column  = 'y')

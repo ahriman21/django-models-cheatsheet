@@ -1,0 +1,6 @@
+*when we want make a relationship between two tables in python ,
+we put the relational variable in the lower level table between those two tables .
+for example we have two tables named Translator and Book , if the application is more about books , then we put the relational variable in Translator  table.
+note : when we create a many to many relation between table Book and Translator in django ,django automaticly creates a third table .  
+
+=========================================================================================
