@@ -1,0 +1,42 @@
+in this doc we are going to see how to query between relational models or relational managers .
+
+* MANY TO MANY relations :
+=> example : M2M relation between Category and Product.
+
+class Category(models.Model):
+  name = models.CharField()
+  products = models.ManyToManyField()
+
+q1 = access to product throgh category object (access to products of a category ):
+-> sport_category = Category.objects.get(name='sport')
+-> sport_products = sport_category.products.all()
+
+'products' is the name of relational variable in model.
+
+q2 =  access to categories of a product:
+-> product = Product.objects.get(name='shirt')
+-> categories_of_product = product.category_set.all()
+
+============================================================================
+
+
+* ONE TO MANY relations :
+=> example : one to many relatioon between Product and ProductImages :
+
+class ProductImages(models.Model):
+  image = models.ImageField
+  product= models.ForeignKeyField('Product',on_delete=models.CASCADE)
+  
+  q1 = get product of ProductImages object :
+ -> product_image = ProductImages.objects.get(pk=3)
+ -> product_of_image = product_image.product
+ 
+ q2 = how to access the property of product of a image :
+-> product_name = product_image.product_name
+ 
+ q3 = how to access to ProductImages objects of a Product object :
+ -> product = Product.objects.get(pk=1)
+ -> product.productimages_set.all()
+ 
+ ============================================================================
+  
