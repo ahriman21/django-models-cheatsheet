@@ -5,7 +5,7 @@ class Meta:
 	get_latest_by 		= ['field1','field2']
 	abstract		=True
 	default_manager_name	='objects'
-	
+	constraints             = []
 	
 	get_absolute_url(self).
 	creating custom methods in models.
