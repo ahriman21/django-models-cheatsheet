@@ -1,0 +1,6 @@
+* how to use Count , Avg , Sum in our queries :
+for this we must import those from django.db.models:
+-> from django.db.models import Count , Avg
+
+q1 = how to get avg of whole Product model prices  :
+-> products_price_avg = Product.objects.aggregate(Avg('price'))
