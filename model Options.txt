@@ -5,12 +5,21 @@ class Meta:
 	get_latest_by 		= ['field1','field2']
 	abstract		=True
 	default_manager_name	='objects'
-	constraints             = []
+	constraints*            = []
 	
 	get_absolute_url(self).
 	creating custom methods in models.
 	using '@property' decorator we can use our custom model methods without '()'
 	
 	
-		
+	
+	
+*constraints : with this property we can set limits for input values.
+
+=> for example not to allow negative numbers as our price value :
+class Meta :
+	constraints = [
+		models.CheckConstraint(check = Q(price__gte = 0), name='not_negative_price')
+
+
 	
