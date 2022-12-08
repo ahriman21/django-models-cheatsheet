@@ -1,0 +1,49 @@
+* if we do create a custom queryset it will be the manager default queryset 
+# we create a class and inherite from models.QuerySet
+
+example => products with discount :
+
+class ProductWithDiscountQuerySet(models.QuerySet):
+    def product_with_discount(self):
+        return self.filter(discount != None)
+        
+ class Product(models.Model):
+    objects = ProductWithDiscountQuerySet.as_manager()
+
+*how to use:
+Product.objects.product_with_discount()
+>>> output would be all products with discount.
+
+==================================================================================
+example 2 :
+
+
+class PersonQuerySet(models.QuerySet):
+    def authors(self):
+        return self.filter(role='A')
+
+    def editors(self):
+        return self.filter(role='E')
+
+
+class Person(models.Model):
+    ROLES = (
+
+       ('A',   'Author' ),
+       ('E',   'Editor' ),
+
+     )
+
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    role = models.CharField(max_length=1, choices=ROLES, default="A" )
+    people = PersonQuerySet.as_manager()
+
+*HOW TO USE THE MANAGER
+- Person.people.editors() / --> just editors
+
+- Person.people.authors() / --> just authors
+
+- Person.people.all()    /  --> all peopole
+
+- Person.objects.all()   /  --> ERROR 'objects' not defined
