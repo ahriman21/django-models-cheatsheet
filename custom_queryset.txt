@@ -91,5 +91,4 @@ class Person(models.Model):
 
     objects = PersonManager()
 
-    def __str__(self) :
-        return self.role
+
