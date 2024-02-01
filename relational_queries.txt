@@ -47,6 +47,9 @@ if you try to get the first object using a basic django query then access the re
 
 -> p_images = ProductImage.objects.all()
 -> product = p_imagges.product
+
+for many to many relations you can use `prefetch_related`. for example :
+-> products = Product.objects.filter(name = x).prefetch_related('catecories')
  
  ============================================================================
   
