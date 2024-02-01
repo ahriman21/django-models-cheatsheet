@@ -37,6 +37,16 @@ class ProductImages(models.Model):
  q3 = how to access to ProductImages objects of a Product object :
  -> product = Product.objects.get(pk=1)
  -> product.productimages_set.all()
+
+* join in django orm | how to access an object from another object :
+-> p_imaegs = ProductImage.objects.select_related'product').get(pk=1)
+-> product = p_images.product()
+
+this code above will get the product related to a ProductImage object with one sql query (join).
+if you try to get the first object using a basic django query then access the related object from it it would cost two sql queries. for example :
+
+-> p_images = ProductImage.objects.all()
+-> product = p_imagges.product
  
  ============================================================================
   
